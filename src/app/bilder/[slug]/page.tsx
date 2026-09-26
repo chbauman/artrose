@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { PageHeader } from "../../page-header";
 import { GALLERIES } from "../../galleries";
@@ -35,6 +36,29 @@ export default async function GalleryPage({
     <>
       <PageHeader title={gallery.title} />
       <div className="max-w-5xl mx-auto px-4 py-10">
+        {gallery.intro && (
+          <>
+            <figure>
+              <Image
+                src={gallery.intro.imageSrc}
+                alt={gallery.intro.imageAlt}
+                width={gallery.intro.imageWidth}
+                height={gallery.intro.imageHeight}
+                className="mx-auto rounded-xl shadow-lg w-full h-auto"
+              />
+              {gallery.intro.caption && (
+                <figcaption className="mt-2 text-center text-sm text-gray-500 dark:text-gray-400">
+                  {gallery.intro.caption}
+                </figcaption>
+              )}
+            </figure>
+            {gallery.intro.text && (
+              <p className="mt-6 mb-6 text-gray-700 dark:text-gray-300 text-lg text-center">
+                {gallery.intro.text}
+              </p>
+            )}
+          </>
+        )}
         <iframe
           src={`https://drive.google.com/embeddedfolderview?orderBy=name%20desc&id=${gallery.folderId}#grid`}
           width="100%"

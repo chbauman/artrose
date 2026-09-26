@@ -3,6 +3,16 @@ export interface Gallery {
   title: string;
   /** Google Drive folder id, embedded via embeddedfolderview. */
   folderId: string;
+  /** Optional intro shown above the folder embed, e.g. a single highlight
+   * photo with a caption and a lead-in line of text. */
+  intro?: {
+    imageSrc: string;
+    imageAlt: string;
+    imageWidth: number;
+    imageHeight: number;
+    caption?: string;
+    text?: string;
+  };
 }
 
 export const GALLERIES: Gallery[] = [
@@ -10,6 +20,14 @@ export const GALLERIES: Gallery[] = [
     slug: "gruppenfotos",
     title: "Gruppenfotos",
     folderId: "1Bo7VCeK8sJqyUgX-CWCstTf6ylFh9GtR",
+    intro: {
+      imageSrc: "/cover_art_rose.jpg",
+      imageAlt: "Gugge Art-Rose in Thun",
+      imageWidth: 1920,
+      imageHeight: 887,
+      caption: "An der Fasnacht in Thun, 1. Februar 2025",
+      text: "Die Gruppenfotos der letzten paar Jahre befinden sich hier:",
+    },
   },
   {
     slug: "saison-2025-26",

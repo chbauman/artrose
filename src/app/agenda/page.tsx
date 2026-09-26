@@ -19,7 +19,7 @@ export default async function AgendaPage() {
 
   return (
     <>
-      <PageHeader title="Agenda" subtitle="Wir sind an folgenden Events zu sehen:" />
+      <PageHeader title="Agenda" />
       <div className="max-w-5xl mx-auto px-4 py-10">
         <AgendaProvider
           sheetId={SHEET_ID}

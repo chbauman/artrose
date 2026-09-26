@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { PageHeader } from "../../page-header";
+import { MemberCard } from "../../member-card";
 
 export const metadata: Metadata = {
   title: "Vorstand",
@@ -7,11 +8,36 @@ export const metadata: Metadata = {
 };
 
 const VORSTAND = [
-  { name: "Kerstin Haas", role: "Präsidentin" },
-  { name: "Markus Muff", role: "Finanzen" },
-  { name: "Joy Birrer", role: "Tourenmanagerin" },
-  { name: "Samuel Osterwalder", role: "Tambi" },
-  { name: "Franziska Hunziker", role: "Beisitzerin" },
+  {
+    name: "Kerstin Haas",
+    role: "Präsidentin",
+    photoSrc: "/members/kerstin.jpg",
+    hoverPhotoSrc: "/members/kerstin_alt.jpg",
+  },
+  {
+    name: "Markus Muff",
+    role: "Finanzen",
+    photoSrc: "/members/markus.jpg",
+    hoverPhotoSrc: "/members/markus_alt.jpg",
+  },
+  {
+    name: "Joy Birrer",
+    role: "Tourenmanagerin",
+    photoSrc: "/members/joy.jpg",
+    hoverPhotoSrc: "/members/joy_alt.jpg",
+  },
+  {
+    name: "Samuel Osterwalder",
+    role: "Tambi",
+    photoSrc: "/members/samuel.jpg",
+    hoverPhotoSrc: "/members/samuel_alt.jpg",
+  },
+  {
+    name: "Franziska Hunziker",
+    role: "Beisitzerin",
+    photoSrc: "/members/franziska.jpg",
+    hoverPhotoSrc: "/members/franziska_alt.jpg",
+  },
 ];
 
 export default function VorstandPage() {
@@ -19,19 +45,12 @@ export default function VorstandPage() {
     <>
       <PageHeader
         title="Vorstand"
-        subtitle="Der Vorstand der Guggenmusik besteht aus den folgenden Mitgliedern:"
       />
-      <div className="max-w-3xl mx-auto px-4 py-10">
-        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {VORSTAND.map(({ name, role }) => (
-            <li
-              key={name}
-              className="text-center p-6 rounded-xl ring-1 ring-gray-200 dark:ring-gray-700"
-            >
-              <p className="font-heading text-lg font-bold text-gray-900 dark:text-white">
-                {name}
-              </p>
-              <p className="text-brand font-medium">{role}</p>
+      <div className="max-w-4xl mx-auto px-4 py-10">
+        <ul className="grid grid-cols-2 sm:grid-cols-3 gap-6 md:gap-8">
+          {VORSTAND.map((member) => (
+            <li key={member.name}>
+              <MemberCard {...member} />
             </li>
           ))}
         </ul>

@@ -40,6 +40,9 @@ export const coverProps: ComponentProps<typeof Cover> = {
   backgroundImageAlt: "Guggenmusik Art-Rose an einem Auftritt",
   backgroundImageWidth: 1920,
   backgroundImageHeight: 887,
+  // Natural aspect is ~2.17:1; crop the sides a bit on mobile (taller ratio)
+  // and the top/bottom a bit on desktop (wider ratio).
+  backgroundAspectClassName: "aspect-[7/4] md:aspect-[5/2]",
   imageOverlayClassName: "bg-black/10 dark:bg-black/30",
   textPanelClassName: "bg-white/45 dark:bg-black/45 py-8",
   textColorClassName: "text-gray-900 dark:text-white",

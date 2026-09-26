@@ -19,7 +19,7 @@ const oswald = Oswald({
 const title = "Guggenmusik Art-Rose";
 const description =
   "Die Guggenmusik Art-Rose aus Thalwil (seit 1980) an der Fasnacht. Auftritte, Mitglieder und Kontakt.";
-const baseUrl = "https://www.art-rose.ch";
+const baseUrl = "https://artrose.ch";
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
