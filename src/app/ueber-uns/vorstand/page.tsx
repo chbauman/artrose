@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 
 const VORSTAND = [
   {
-    name: "Kerstin Haas",
+    name: "Aline Friemel",
     role: "Präsidentin",
-    photoSrc: "/members/kerstin.jpg",
-    hoverPhotoSrc: "/members/kerstin_alt.jpg",
+    photoSrc: "/members/aline.jpg",
+    hoverPhotoSrc: "/members/aline_alt.jpg",
   },
   {
     name: "Markus Muff",
@@ -33,10 +33,10 @@ const VORSTAND = [
     hoverPhotoSrc: "/members/samuel_alt.jpg",
   },
   {
-    name: "Franziska Hunziker",
-    role: "Beisitzerin",
-    photoSrc: "/members/franziska.jpg",
-    hoverPhotoSrc: "/members/franziska_alt.jpg",
+    name: "Dave Naarden",
+    role: "Beisitzer",
+    photoSrc: "/members/dave.jpg",
+    hoverPhotoSrc: "/members/dave_alt.jpg",
   },
 ];
 

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 interface Member {
   name: string;
-  photoSrc: string;
+  photoSrc?: string;
   hoverPhotoSrc?: string;
 }
 
@@ -88,9 +88,7 @@ const SECTIONS: { instrument: string; members: Member[] }[] = [
         hoverPhotoSrc: "/members/stefan_senn_alt.jpg",
       },
       {
-        name: "Franziska Hunziker",
-        photoSrc: "/members/franziska.jpg",
-        hoverPhotoSrc: "/members/franziska_alt.jpg",
+        name: "Ramon Beer",
       },
       {
         name: "Joy Birrer",
