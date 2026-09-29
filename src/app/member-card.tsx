@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRef, useState } from "react";
 
 interface MemberCardProps {
   name: string;
@@ -27,9 +28,29 @@ export function MemberCard({
   photoSrc,
   hoverPhotoSrc,
 }: Readonly<MemberCardProps>) {
+  const [showAlt, setShowAlt] = useState(false);
+  const pointerType = useRef("mouse");
+
   return (
     <div className="text-center">
-      <div className="group relative aspect-[3/4] w-full overflow-hidden rounded-xl shadow-md">
+      <div
+        className="relative aspect-[3/4] w-full overflow-hidden rounded-xl shadow-md"
+        onPointerDown={(e) => {
+          pointerType.current = e.pointerType;
+        }}
+        onPointerEnter={(e) => {
+          if (e.pointerType === "mouse") setShowAlt(true);
+        }}
+        onPointerLeave={(e) => {
+          if (e.pointerType === "mouse") setShowAlt(false);
+        }}
+        onClick={() => {
+          // Touch has no hover, so a tap toggles the second photo instead.
+          if (hoverPhotoSrc && pointerType.current !== "mouse") {
+            setShowAlt((v) => !v);
+          }
+        }}
+      >
         {photoSrc ? (
           <>
             <Image
@@ -45,7 +66,9 @@ export function MemberCard({
                 alt=""
                 fill
                 sizes="(max-width: 640px) 50vw, 300px"
-                className="object-cover opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                className={`object-cover transition-opacity duration-300 ${
+                  showAlt ? "opacity-100" : "opacity-0"
+                }`}
               />
             )}
           </>
