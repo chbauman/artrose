@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 interface MemberCardProps {
   name: string;
@@ -29,27 +29,22 @@ export function MemberCard({
   hoverPhotoSrc,
 }: Readonly<MemberCardProps>) {
   const [showAlt, setShowAlt] = useState(false);
-  const pointerType = useRef("mouse");
 
   return (
     <div className="text-center">
       <div
-        className="relative aspect-[3/4] w-full overflow-hidden rounded-xl shadow-md"
-        onPointerDown={(e) => {
-          pointerType.current = e.pointerType;
-        }}
+        className="relative aspect-[3/4] w-full select-none overflow-hidden rounded-xl shadow-md [-webkit-touch-callout:none]"
+        // Mouse: reveal while hovering. Touch/pen: reveal while pressed.
         onPointerEnter={(e) => {
           if (e.pointerType === "mouse") setShowAlt(true);
         }}
-        onPointerLeave={(e) => {
-          if (e.pointerType === "mouse") setShowAlt(false);
+        onPointerDown={() => setShowAlt(true)}
+        onPointerUp={(e) => {
+          if (e.pointerType !== "mouse") setShowAlt(false);
         }}
-        onClick={() => {
-          // Touch has no hover, so a tap toggles the second photo instead.
-          if (hoverPhotoSrc && pointerType.current !== "mouse") {
-            setShowAlt((v) => !v);
-          }
-        }}
+        onPointerCancel={() => setShowAlt(false)}
+        onPointerLeave={() => setShowAlt(false)}
+        onContextMenu={(e) => e.preventDefault()}
       >
         {photoSrc ? (
           <>
