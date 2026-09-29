@@ -1,4 +1,4 @@
-:HL["/_next/static/chunks/2remxi87ta5k1.css","style"]
+:HL["/_next/static/chunks/3i5em71j7azzp.css","style"]
 :HL["/_next/static/media/6ad1cda2f16975ee-s.p.2j22bd4n1tlhh.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"bilder","param":null,"prefetchHints":4192,"slots":{"children":{"name":"slug","param":{"type":"d","key":"saison-2022-23","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"YG1n_h8OoV1TpSQwWGEUW"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"bilder","param":null,"prefetchHints":4192,"slots":{"children":{"name":"slug","param":{"type":"d","key":"saison-2022-23","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}},"staleTime":300,"buildId":"BJ4mkt4P-z_-G2gGLumh9"}
