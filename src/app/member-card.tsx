@@ -34,16 +34,19 @@ export function MemberCard({
     <div className="text-center">
       <div
         className="relative aspect-[3/4] w-full select-none overflow-hidden rounded-xl shadow-md [-webkit-touch-callout:none]"
-        // Mouse: reveal while hovering. Touch/pen: reveal while pressed.
+        // Mouse: reveal while hovering.
         onPointerEnter={(e) => {
           if (e.pointerType === "mouse") setShowAlt(true);
         }}
-        onPointerDown={() => setShowAlt(true)}
-        onPointerUp={(e) => {
-          if (e.pointerType !== "mouse") setShowAlt(false);
+        onPointerLeave={(e) => {
+          if (e.pointerType === "mouse") setShowAlt(false);
         }}
-        onPointerCancel={() => setShowAlt(false)}
-        onPointerLeave={() => setShowAlt(false)}
+        // Touch: reveal while a finger is down. Touch events (unlike pointer
+        // events) aren't cancelled when the touch turns into a scroll, so the
+        // photo stays swapped until the finger lifts.
+        onTouchStart={() => setShowAlt(true)}
+        onTouchEnd={() => setShowAlt(false)}
+        onTouchCancel={() => setShowAlt(false)}
         onContextMenu={(e) => e.preventDefault()}
       >
         {photoSrc ? (
