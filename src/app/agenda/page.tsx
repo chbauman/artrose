@@ -27,9 +27,15 @@ export default async function AgendaPage() {
           initialData={agenda}
         >
           <SectionHeading title="Kommende Auftritte" />
-          <FutureEvents />
+          <FutureEvents
+            surfaceClassName="bg-surface"
+            stripeClassName="odd:bg-surface-alt"
+          />
           <SectionHeading title="Vergangene Auftritte" />
-          <PastEvents />
+          <PastEvents
+            surfaceClassName="bg-surface"
+            stripeClassName="odd:bg-surface-alt"
+          />
         </AgendaProvider>
       </div>
     </>

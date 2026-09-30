@@ -8,6 +8,12 @@
   --foreground: #171717;
   --brand: #f20235;
   --brand-dark: #c0022a;
+  /* Header/footer/table-base background: a step off the page background —
+     darker in light mode, lighter in dark mode (set below). */
+  --surface: color-mix(in srgb, black 4%, var(--background));
+  /* A second, slightly stronger step for things that sit on top of
+     `--surface` (dropdown panels, table row striping). */
+  --surface-alt: color-mix(in srgb, black 8%, var(--background));
 }
 
 @theme inline {
@@ -15,6 +21,8 @@
   --color-foreground: var(--foreground);
   --color-brand: var(--brand);
   --color-brand-dark: var(--brand-dark);
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
   --font-sans: var(--font-inter);
   --font-heading: var(--font-oswald);
 }
@@ -23,8 +31,13 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
-    --brand: #fe6787;
-    --brand-dark: #f20235;
+    /* Same red as the logo in both modes — it still clears WCAG AA
+       (~4.56:1) against this near-black background. The lighter pink that
+       used to be the default here is now just the hover accent. */
+    --brand: #f20235;
+    --brand-dark: #fe6787;
+    --surface: color-mix(in srgb, white 10%, var(--background));
+    --surface-alt: color-mix(in srgb, white 18%, var(--background));
   }
 }
 
