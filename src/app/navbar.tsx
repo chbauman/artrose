@@ -22,7 +22,7 @@ export function Navbar({ logoSrc, logoAlt, siteName, items }: NavbarProps) {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur border-b border-gray-200 dark:border-gray-700">
+    <header className="sticky top-0 z-50 w-full bg-surface/95 backdrop-blur border-b border-gray-200 dark:border-gray-700">
       <nav className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <Image src={logoSrc} alt={logoAlt} width={40} height={80} className="h-10 w-auto" />
@@ -54,7 +54,7 @@ export function Navbar({ logoSrc, logoAlt, siteName, items }: NavbarProps) {
                   </button>
                   {openDropdown === item.label && (
                     <ul className="absolute left-0 top-full pt-2 min-w-48">
-                      <li className="bg-white dark:bg-gray-800 rounded-lg shadow-lg ring-1 ring-gray-200 dark:ring-gray-700 overflow-hidden">
+                      <li className="bg-surface-alt rounded-lg shadow-lg ring-1 ring-gray-200 dark:ring-gray-700 overflow-hidden">
                         <Link
                           href={item.href}
                           className="block px-4 py-2 text-gray-700 dark:text-gray-200 hover:bg-brand/10 hover:text-brand transition-colors"
@@ -105,7 +105,7 @@ export function Navbar({ logoSrc, logoAlt, siteName, items }: NavbarProps) {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <ul className="md:hidden border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-4 py-3 space-y-1">
+        <ul className="md:hidden border-t border-gray-200 dark:border-gray-700 bg-surface px-4 py-3 space-y-1">
           {items.map((item) => (
             <li key={item.href}>
               <Link

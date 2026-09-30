@@ -54,6 +54,7 @@ export const footerProps: ComponentProps<typeof Footer> = {
   logoAlt: "Guggenmusik Art-Rose Logo",
   logoWidth: 40,
   logoHeight: 80,
+  surfaceClassName: "bg-surface",
   links: [
     { type: "email", href: "mailto:gugge.artrose@gmail.com" },
     { type: "instagram", href: "https://www.instagram.com/gugge_art_rose/" },
