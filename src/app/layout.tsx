@@ -20,7 +20,7 @@ const oswald = Oswald({
 
 const title = `${SITE_NAME} – Fasnacht in Thalwil`;
 const description =
-  "Die Guggenmusik Art-Rose (Gugge Art-Rose) aus Thalwil, gegründet 1980: Auftritte an der Fasnacht, Fotos, Mitglieder und Kontakt.";
+  "Die Guggenmusik Art-Rose (Art Rose, Rösli vo Thalwil) aus Thalwil, gegründet 1980: Auftritte an der Fasnacht, Fotos, Mitglieder und Kontakt.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   description,
   keywords: [
     "Guggenmusik Art-Rose",
+    "Art Rose",
+    "Gugge Art Rose",
+    "Rösli vo Thalwil",
     "Thalwil",
     "Fasnacht",
     "Gugge",
@@ -71,6 +74,7 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MusicGroup",
   name: SITE_NAME,
+  alternateName: ["Art Rose", "Rösli vo Thalwil"],
   description,
   url: BASE_URL,
   logo: `${BASE_URL}/logo.png`,

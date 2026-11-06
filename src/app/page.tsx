@@ -24,18 +24,18 @@ export default async function Home() {
       {events.length > 0 && <JsonLd data={events} />}
       <Cover {...coverProps} />
       <div className="max-w-5xl mx-auto px-4">
-        <SectionHeading title="Unterwegs als Cruella De Vil" />
+        <SectionHeading title="Saison 2025 / 2026: Cruella De Vil" />
         <Image
           src="/band_photo.jpg"
-          alt="Art-Rose im Konfettiregen"
+          alt="Die Guggenmusik Art-Rose als Cruella De Vil auf der Bühne im Konfettiregen"
           width={1536}
           height={863}
           className="mx-auto mb-6 rounded-xl shadow-lg w-full h-auto"
           priority
         />
         <p className="mb-10 text-gray-700 dark:text-gray-300 text-lg text-center max-w-2xl mx-auto">
-          Die Fasnachtssaison 2025 / 2026 hat gestartet, die Röslis sind
-          unterwegs als Cruella De Vil aus dem Film 101 Dalmatiner.
+          In der Fasnachtssaison 2025 / 2026 waren die Röslis als Cruella De
+          Vil aus dem Film 101 Dalmatiner unterwegs.
         </p>
 
         <SectionHeading title="Wir suchen neue Mitglieder" />

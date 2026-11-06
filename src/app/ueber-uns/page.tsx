@@ -23,8 +23,9 @@ export default function UeberUnsPage() {
         <SectionHeading title="Geschichte" />
         <div className="flex flex-col-reverse sm:flex-row items-center gap-6 mb-10">
           <p className="text-gray-700 dark:text-gray-300 text-lg flex-1">
-            Die Guggenmusik Art-Rose wurde im Januar 1980 gegründet und stammt
-            ursprünglich aus Langnau am Albis. An der GV vom 5. April 1991
+            Die Guggenmusik Art-Rose (auch „Art Rose“ oder „Rösli vo Thalwil“
+            genannt) wurde im Januar 1980 gegründet und stammt ursprünglich
+            aus Langnau am Albis. An der GV vom 5. April 1991
             wurde die Zugehörigkeit der Gugge zu Thalwil beschlossen.
             Hauptsächlich ist die Gugge Art-Rose in der Region unterwegs. Pro
             Saison gibt es mindestens einen Auftritt bzw. ein Wochenende in
