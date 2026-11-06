@@ -1,11 +1,14 @@
-import type { Metadata } from "next";
 import { PageHeader } from "../../page-header";
 import { MemberCard } from "../../member-card";
+import { BreadcrumbJsonLd } from "../../json-ld";
+import { pageMetadata } from "../../seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Vorstand",
-  description: "Der Vorstand der Guggenmusik Art-Rose.",
-};
+  description:
+    "Der Vorstand der Guggenmusik Art-Rose aus Thalwil.",
+  path: "/ueber-uns/vorstand",
+});
 
 const VORSTAND = [
   {
@@ -43,6 +46,12 @@ const VORSTAND = [
 export default function VorstandPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Über uns", path: "/ueber-uns" },
+          { name: "Vorstand", path: "/ueber-uns/vorstand" },
+        ]}
+      />
       <PageHeader
         title="Vorstand"
       />

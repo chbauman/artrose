@@ -1,17 +1,23 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { SectionHeading } from "@emeki/band-site-kit";
 import { PageHeader } from "../page-header";
+import { BreadcrumbJsonLd } from "../json-ld";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = {
-  title: "Über Uns",
-  description: "Geschichte und Proben der Guggenmusik Art-Rose.",
-};
+export const metadata = pageMetadata({
+  title: "Über uns: Geschichte und Proben",
+  description:
+    "Die Guggenmusik Art-Rose wurde 1980 in Langnau am Albis gegründet und gehört seit 1991 zu Thalwil. Proben jeweils am Dienstag um 20:00 Uhr in der Pfisterschüür.",
+  path: "/ueber-uns",
+});
 
 export default function UeberUnsPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[{ name: "Über uns", path: "/ueber-uns" }]}
+      />
       <PageHeader title="Über Uns" />
       <div className="max-w-4xl mx-auto px-4 py-10">
         <SectionHeading title="Geschichte" />
@@ -26,7 +32,7 @@ export default function UeberUnsPage() {
           </p>
           <Image
             src="/uberuns.jpg"
-            alt=""
+            alt="Musikerinnen und Musiker der Guggenmusik Art-Rose in Kostümen und Masken mit ihren Instrumenten vor dem grünen Fahnenbanner „D'Art Rose“"
             width={483}
             height={362}
             className="w-full max-w-[307px] h-auto rounded-xl shadow-md shrink-0"
@@ -37,7 +43,7 @@ export default function UeberUnsPage() {
         <div className="flex flex-col sm:flex-row items-center gap-6">
           <Image
             src="/probe.jpg"
-            alt=""
+            alt="Probe der Guggenmusik Art-Rose: Bläserinnen und Bläser mit Trompeten und Tuben in einem Probenraum"
             width={483}
             height={362}
             className="w-full sm:w-1/2 h-auto rounded-xl shadow-md shrink-0"

@@ -3,6 +3,8 @@ import { Inter, Oswald } from "next/font/google";
 import { Footer } from "@emeki/band-site-kit";
 import "./globals.css";
 import { Navbar } from "./navbar";
+import { JsonLd } from "./json-ld";
+import { BASE_URL, OG_IMAGE, SITE_NAME } from "./seo";
 import { NAV_ITEMS, footerProps } from "./site-config";
 
 const inter = Inter({
@@ -16,16 +18,15 @@ const oswald = Oswald({
   subsets: ["latin"],
 });
 
-const title = "Guggenmusik Art-Rose";
+const title = `${SITE_NAME} – Fasnacht in Thalwil`;
 const description =
-  "Die Guggenmusik Art-Rose aus Thalwil (seit 1980) an der Fasnacht. Auftritte, Mitglieder und Kontakt.";
-const baseUrl = "https://artrose.ch";
+  "Die Guggenmusik Art-Rose (Gugge Art-Rose) aus Thalwil, gegründet 1980: Auftritte an der Fasnacht, Fotos, Mitglieder und Kontakt.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(baseUrl),
+  metadataBase: new URL(BASE_URL),
   title: {
     default: title,
-    template: "%s | Guggenmusik Art-Rose",
+    template: `%s | ${SITE_NAME}`,
   },
   description,
   keywords: [
@@ -36,30 +37,25 @@ export const metadata: Metadata = {
     "Guggenmusik",
     "Zürich",
   ],
+  // Relative, so every page gets its own canonical URL (pages set an explicit
+  // one via pageMetadata; this is the safe default for any that don't).
   alternates: {
-    canonical: baseUrl,
+    canonical: "./",
   },
   openGraph: {
     title,
     description,
     type: "website",
     locale: "de_CH",
-    url: baseUrl,
-    siteName: title,
-    images: [
-      {
-        url: "/cover_art_rose.jpg",
-        width: 1920,
-        height: 887,
-        alt: "Guggenmusik Art-Rose an einem Auftritt",
-      },
-    ],
+    url: "./",
+    siteName: SITE_NAME,
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: ["/cover_art_rose.jpg"],
+    images: [OG_IMAGE.url],
   },
   icons: {
     apple: "/apple-touch-icon.png",
@@ -74,11 +70,14 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "MusicGroup",
-  name: title,
+  name: SITE_NAME,
   description,
-  url: baseUrl,
+  url: BASE_URL,
+  logo: `${BASE_URL}/logo.png`,
+  image: `${BASE_URL}${OG_IMAGE.url}`,
   email: "gugge.artrose@gmail.com",
   foundingDate: "1980",
+  foundingLocation: { "@type": "Place", name: "Langnau am Albis" },
   genre: ["Guggenmusik"],
   location: {
     "@type": "Place",
@@ -102,10 +101,7 @@ export default function RootLayout({
   return (
     <html lang="de">
       <body className={`${inter.variable} ${oswald.variable} antialiased`}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        <JsonLd data={jsonLd} />
         <div className="min-h-screen flex flex-col">
           <Navbar
             logoSrc="/logo.png"
