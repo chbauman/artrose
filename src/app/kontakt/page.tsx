@@ -1,15 +1,21 @@
-import type { Metadata } from "next";
 import { SectionHeading } from "@emeki/band-site-kit";
 import { PageHeader } from "../page-header";
+import { BreadcrumbJsonLd } from "../json-ld";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Kontakt",
-  description: "Kontaktiere die Guggenmusik Art-Rose.",
-};
+  description:
+    "Kontakt zur Guggenmusik Art-Rose aus Thalwil: Schreib uns, wenn du bei uns mitmachen möchtest oder Fragen und Ideen hast.",
+  path: "/kontakt",
+});
 
 export default function KontaktPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[{ name: "Kontakt", path: "/kontakt" }]}
+      />
       <PageHeader title="Kontakt" />
       <div className="max-w-3xl mx-auto px-4 py-10">
         <p className="mb-6 text-gray-700 dark:text-gray-300 text-lg text-center">

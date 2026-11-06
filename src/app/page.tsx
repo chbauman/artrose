@@ -7,9 +7,9 @@ import {
   SectionHeading,
   VideoEmbed,
   fetchAgenda,
-  stripMarkdownLinks,
-  toISODate,
 } from "@emeki/band-site-kit";
+import { JsonLd } from "./json-ld";
+import { eventsJsonLd } from "./seo";
 import { META_SHEET_ID, SHEET_ID, coverProps } from "./site-config";
 
 export default async function Home() {
@@ -17,43 +17,25 @@ export default async function Home() {
   // once at build time!
   const agenda = await fetchAgenda(SHEET_ID, META_SHEET_ID);
 
-  const eventsJsonLd = agenda.future.map((event) => ({
-    "@context": "https://schema.org",
-    "@type": "MusicEvent",
-    name: stripMarkdownLinks(event.Event ?? ""),
-    startDate: toISODate(event.Datum),
-    location: {
-      "@type": "Place",
-      name: stripMarkdownLinks(event.Ort ?? ""),
-    },
-    performer: {
-      "@type": "MusicGroup",
-      name: "Guggenmusik Art-Rose",
-    },
-  }));
+  const events = eventsJsonLd(agenda.future);
 
   return (
     <>
-      {eventsJsonLd.length > 0 && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(eventsJsonLd) }}
-        />
-      )}
+      {events.length > 0 && <JsonLd data={events} />}
       <Cover {...coverProps} />
       <div className="max-w-5xl mx-auto px-4">
-        <SectionHeading title="Unterwegs als Cruella De Vil" />
+        <SectionHeading title="Saison 2025 / 2026: Cruella De Vil" />
         <Image
           src="/band_photo.jpg"
-          alt="Art-Rose im Konfettiregen"
+          alt="Die Guggenmusik Art-Rose als Cruella De Vil auf der Bühne im Konfettiregen"
           width={1536}
           height={863}
           className="mx-auto mb-6 rounded-xl shadow-lg w-full h-auto"
           priority
         />
         <p className="mb-10 text-gray-700 dark:text-gray-300 text-lg text-center max-w-2xl mx-auto">
-          Die Fasnachtssaison 2025 / 2026 hat gestartet, die Röslis sind
-          unterwegs als Cruella De Vil aus dem Film 101 Dalmatiner.
+          In der Fasnachtssaison 2025 / 2026 waren die Röslis als Cruella De
+          Vil aus dem Film 101 Dalmatiner unterwegs.
         </p>
 
         <SectionHeading title="Wir suchen neue Mitglieder" />

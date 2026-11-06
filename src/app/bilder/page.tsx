@@ -1,13 +1,16 @@
-import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { PageHeader } from "../page-header";
 import { GALLERIES } from "../galleries";
+import { BreadcrumbJsonLd } from "../json-ld";
+import { pageMetadata } from "../seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Bilder",
-  description: "Fotos der Guggenmusik Art-Rose.",
-};
+  description:
+    "Fotos der Guggenmusik Art-Rose aus Thalwil: Gruppenfotos und Bilder der einzelnen Fasnachtssaisons.",
+  path: "/bilder",
+});
 
 export default function BilderPage() {
   // The original site leaves the current, still-filling-up season off this
@@ -18,6 +21,9 @@ export default function BilderPage() {
 
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[{ name: "Bilder", path: "/bilder" }]}
+      />
       <PageHeader title="Bilder" />
       <div className="max-w-5xl mx-auto px-4 py-10">
         <p className="mb-6 text-gray-700 dark:text-gray-300 text-lg text-center">

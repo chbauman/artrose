@@ -1,12 +1,15 @@
-import type { Metadata } from "next";
 import { SectionHeading } from "@emeki/band-site-kit";
 import { PageHeader } from "../../page-header";
 import { MemberCard } from "../../member-card";
+import { BreadcrumbJsonLd } from "../../json-ld";
+import { pageMetadata } from "../../seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Mitglieder",
-  description: "Die Mitglieder der Guggenmusik Art-Rose nach Instrument.",
-};
+  description:
+    "Die Mitglieder der Guggenmusik Art-Rose aus Thalwil, aufgeteilt nach Instrument.",
+  path: "/ueber-uns/mitglieder",
+});
 
 interface Member {
   name: string;
@@ -102,6 +105,12 @@ const SECTIONS: { instrument: string; members: Member[] }[] = [
 export default function MitgliederPage() {
   return (
     <>
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Über uns", path: "/ueber-uns" },
+          { name: "Mitglieder", path: "/ueber-uns/mitglieder" },
+        ]}
+      />
       <PageHeader title="Mitglieder" />
       <div className="max-w-4xl mx-auto px-4 py-10">
         {SECTIONS.map(({ instrument, members }) => (
